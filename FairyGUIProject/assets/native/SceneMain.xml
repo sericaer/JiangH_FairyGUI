@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1440,900">
+  <displayList>
+    <component id="n3_g4d4" name="Player" src="g4d43" fileName="Player.xml" xy="0,0"/>
+    <list id="n16_b4e9" name="Top" xy="121,0" size="230,40" layout="row">
+      <item url="ui://ah3qizbwb4e95" name="Date"/>
+      <item url="ui://ah3qizbwb4e9l" name="DateSpeedControl"/>
+    </list>
+  </displayList>
+</component>

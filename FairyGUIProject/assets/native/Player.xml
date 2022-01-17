@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="120,150">
+  <displayList>
+    <component id="n0_g4d4" name="Button" src="g4d44" fileName="Button1.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <text id="n1_g4d4" name="name" xy="0,40" size="120,19" fontSize="12" align="center" vAlign="middle" autoSize="none" text="--"/>
+    <text id="n2_g4d4" name="office" xy="0,80" size="120,19" fontSize="12" align="center" vAlign="middle" autoSize="none" text="--"/>
+  </displayList>
+</component>

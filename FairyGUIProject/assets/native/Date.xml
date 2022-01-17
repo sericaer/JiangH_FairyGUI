@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="150,40">
+  <displayList>
+    <graph id="n5_i073" name="image" xy="0,0" size="150,40" type="rect" lineSize="0"/>
+    <text id="n6_i073" name="n6" xy="67,9" size="16,19" fontSize="12" align="center" vAlign="middle" text="??">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </text>
+  </displayList>
+</component>

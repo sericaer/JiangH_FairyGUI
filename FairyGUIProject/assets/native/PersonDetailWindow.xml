@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="800,600">
+  <displayList>
+    <graph id="n0_b4e9" name="background" xy="0,0" size="800,600" type="rect" fillColor="#3f000000">
+      <relation target="" sidePair="rightext-right,topext-top,bottomext-bottom,leftext-left"/>
+    </graph>
+    <component id="n2_b4e9" name="BtnClose" src="b4e9q" fileName="BtnClose.xml" xy="256,273">
+      <Button title="Close"/>
+    </component>
+    <text id="n3_b4e9" name="name" xy="237,103" size="16,19" customData="{&#xD;&#xA;&#x9;&quot;bind&quot;: {&#xD;&#xA;&#x9;&#x9;&quot;src&quot;: &quot;Player.name&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}" fontSize="12" text="??"/>
+  </displayList>
+</component>
