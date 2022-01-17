@@ -1,0 +1,6 @@
+[submodule "Assets/Plugins/FairyGUI.DataBind"]
+	path = Assets/Plugins/FairyGUI.DataBind
+	url = git@git.zhlh6.cn:sericaer/FairyGUI.DataBind.git
+[submodule "Assets/Plugins/FairyGUI-unity"]
+	path = Assets/Plugins/FairyGUI-unity
+	url = git@git.zhlh6.cn:sericaer/FairyGUI-unity.git
