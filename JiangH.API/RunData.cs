@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using ReactiveMarbles.PropertyChanged;
 
@@ -35,15 +37,26 @@ namespace JiangH.API
             player = new Person();
             date = new Date();
 
-            date.WhenChanged(x => x.year).Subscribe(_ => player.age++);
+            for(int i=0; i< 3; i++)
+            {
+                player.AddEstate(new Estate() { name = $"{i}_Estate" });
+            }
+        }
+
+        public void OnDaysInc()
+        {
+            date.OnDaysInc();
+            player.OnDaysInc();
         }
     }
 
     public interface IDate : INotifyPropertyChanged
     {
-        int year { get; set; }
-        int month { get; set; }
-        int day { get; set; }
+        int year { get; }
+        int month { get;}
+        int day { get;}
+
+        void OnDaysInc();
     }
 
     public class Date : IDate
@@ -58,7 +71,7 @@ namespace JiangH.API
             {
                 return _year;
             }
-            set
+            private set
             {
                 _year = value;
             }
@@ -70,7 +83,7 @@ namespace JiangH.API
             {
                 return _month;
             }
-            set
+            private set
             {
                 _month = value;
                 if (_month > 12)
@@ -87,7 +100,7 @@ namespace JiangH.API
             {
                 return _day;
             }
-            set
+            private set
             {
                 _day = value;
                 if (_day > 30)
@@ -108,6 +121,11 @@ namespace JiangH.API
             month = 1;
             day = 1;
         }
+
+        public void OnDaysInc()
+        {
+            day++;
+        }
     }
 
     public interface IPerson : INotifyPropertyChanged
@@ -115,6 +133,15 @@ namespace JiangH.API
         string name { get; set; }
 
         int age { get; set; }
+
+        int money { get; set; }
+
+        ReadOnlyObservableCollection<IEstate> estates { get; set; }
+
+        void OnDaysInc();
+
+        void AddEstate(IEstate estate);
+        void RemoveEstate();
     }
 
     public class Person : IPerson
@@ -125,12 +152,47 @@ namespace JiangH.API
 
         public string name { get ; set; }
         public int age { get; set; }
+        public int money { get; set; }
+
+        public ReadOnlyObservableCollection<IEstate> estates { get; set; }
+
+        private ObservableCollection<IEstate> _estates;
 
         public Person()
         {
             name = "Test1";
             age = 20;
+
+            _estates = new ObservableCollection<IEstate>();
+
+            estates = new ReadOnlyObservableCollection<IEstate>(_estates);
         }
 
+        public void AddEstate(IEstate estate)
+        {
+            _estates.Add(estate);
+        }
+
+        public void OnDaysInc()
+        {
+            
+        }
+
+        public void RemoveEstate()
+        {
+            _estates.Remove(_estates.First());
+        }
     }
+
+    public interface IEstate : INotifyPropertyChanged
+    {
+        string name { get; set; }
+    }
+
+    public class Estate : IEstate
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+        public string name { get; set; }
+    }
+
 }

@@ -8,6 +8,8 @@ public class MainScene : MonoBehaviour
 {
     private GObject gObject;
 
+    private int count = 0;
+
     void Start()
     {
         BindContext.DoCmd = (context, obj) =>
@@ -25,7 +27,17 @@ public class MainScene : MonoBehaviour
 
     void Update()
     {
-        
+        if(count % 1000 == 0)
+        {
+            Facade.gmSession.player.AddEstate(new Estate() { name = $"{count}_ESTATE" });
+        }
+
+        if (count % 1500 == 0)
+        {
+            Facade.gmSession.player.RemoveEstate();
+        }
+
+        count++;
     }
 
     void OnDestroy()

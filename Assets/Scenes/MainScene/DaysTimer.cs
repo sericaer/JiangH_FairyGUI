@@ -34,7 +34,7 @@ public class DaysTimer : MonoBehaviour
         yield return new WaitForSeconds(1.0f / speed);
         yield return new WaitUntil(() => !isPause);
 
-        Facade.gmSession.date.day++;
+        Facade.gmSession.OnDaysInc();
 
         StartCoroutine(OnTimer());
     }

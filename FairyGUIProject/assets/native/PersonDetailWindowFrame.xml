@@ -5,5 +5,8 @@
       <Button title="Close"/>
     </component>
     <text id="n3_b4e9" name="name" xy="237,103" size="16,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;name&quot;&#xA;&#x9;}&#xA;}" fontSize="12" text="??"/>
+    <list id="n6_rawl" name="n6" xy="466,113" size="213,300" customData="{&#xD;&#xA;&#x9;&quot;bind&quot;: {&#xD;&#xA;&#x9;&#x9;&quot;listSource&quot;: &quot;estates&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}" overflow="scroll">
+      <item url="ui://ah3qizbwrawlv" name="template"/>
+    </list>
   </displayList>
 </component>

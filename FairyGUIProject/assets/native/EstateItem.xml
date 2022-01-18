@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="300,40">
+  <displayList>
+    <text id="n0_rawl" name="n0" xy="102,7" size="40,26" customData="{&#xD;&#xA;&#x9;&quot;bind&quot;: {&#xD;&#xA;&#x9;&#x9;&quot;text&quot;: &quot;name&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}" fontSize="12" autoSize="none" text="??"/>
+  </displayList>
+</component>

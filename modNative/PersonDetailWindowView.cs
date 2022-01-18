@@ -1,4 +1,5 @@
 ﻿using JiangH.API;
+using System.Collections.ObjectModel;
 
 namespace modNative
 {
@@ -7,7 +8,9 @@ namespace modNative
     {
         public string name => person.name;
 
-        public IPerson person { get; set; }
+        public ReadOnlyObservableCollection<IEstate> estates => person.estates;
+
+        private IPerson person { get; set; }
 
         public override void Init(object param)
         {

@@ -14,6 +14,7 @@
     <component id="b4e9q" name="BtnClose.xml" path="/"/>
     <component id="rawlr" name="DataSpeedControl.xml" path="/"/>
     <component id="rawlt" name="PersonDetailWindow.xml" path="/" exported="true"/>
+    <component id="rawlv" name="EstateItem.xml" path="/"/>
   </resources>
   <publish name=""/>
 </packageDescription>
