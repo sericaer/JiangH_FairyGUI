@@ -1,6 +1,7 @@
 using FairyGUI;
 using FairyGUI.DataBind;
 using JiangH.API;
+using JiangH.Kernels.Entities;
 using System.Collections;
 using UnityEngine;
 

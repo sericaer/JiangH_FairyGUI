@@ -45,7 +45,6 @@ internal class UIGenerator
         win.onRemovedFromStage.Add(() =>
         {
             context.Dispose();
-            win.Dispose();
         });
     }
 
