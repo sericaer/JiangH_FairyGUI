@@ -6,6 +6,13 @@ using System.Reflection;
 
 namespace JiangH.API
 {
+
+    public class NewWindowCmd
+    {
+        public string name { get; set; }
+        public object param { get; set; }
+    }
+
     public abstract class UIView : INotifyPropertyChanged, IDisposable
     {
 #pragma warning disable 0067 
@@ -24,6 +31,11 @@ namespace JiangH.API
         public virtual void Init(object param)
         {
 
+        }
+
+        public void OnClickClose()
+        {
+            isRemoved = true;
         }
 
         public void BindOneWay<TFrom, TPropertyType, TTarget>(TFrom fromObject, Expression<Func<TFrom, TPropertyType>> fromProperty,

@@ -4,7 +4,7 @@
     <graph id="n4_b4e9" name="n4" xy="0,0" size="150,40" type="rect" lineSize="0">
       <relation target="" sidePair="center-center,middle-middle"/>
     </graph>
-    <text id="n27_b4e9" name="value" xy="67,10" size="16,19" fontSize="12" align="center" text="??">
+    <text id="n27_b4e9" name="value" xy="67,10" size="16,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;date&quot;&#xA;&#x9;}&#xA;}" fontSize="12" align="center" text="??">
       <relation target="" sidePair="center-center,middle-middle"/>
     </text>
   </displayList>

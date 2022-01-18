@@ -13,8 +13,8 @@ using PropertyChanged;
 
 namespace modNative
 {
-    [UISceneBind("SceneMain")]
-    public class SceneMainView : UIView
+    [UISceneBind("MainScene")]
+    public class MainSceneView : UIView
     {
         public string playerName => Facade.gmSession.player.name;
         public string date => $"{year}-{month}-{day}";
@@ -35,7 +35,7 @@ namespace modNative
 
         //private ICommand _playerButtonCmd = new PersonDetailWindowCmd(() => Facade.gmSession.player);
 
-        public SceneMainView()
+        public MainSceneView()
         {
             BindOneWay(Facade.gmSession, x => x.date.day, this, t=> t.day);
             BindOneWay(Facade.gmSession, x => x.date.year, this, t => t.year);
@@ -49,6 +49,14 @@ namespace modNative
 
 
             //isSpeed1 = true;
+        }
+
+        public NewWindowCmd OnClickPlayerButton()
+        {
+            return new NewWindowCmd() {
+                name = "PersonDetailWindow",
+                param = Facade.gmSession.player
+            };
         }
 
     }

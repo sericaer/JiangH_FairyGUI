@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="84,40">
+  <displayList>
+    <component id="n0_rawl" name="n0" src="b4e9k" fileName="BtnSpeed+++.xml" xy="0,0" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;selected&quot;: &quot;isSpeed3&quot;&#xA;&#x9;}&#xA;}"/>
+    <component id="n1_rawl" name="n1" src="b4e9i" fileName="BtnSpeed++.xml" xy="21,0" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;selected&quot;: &quot;isSpeed2&quot;&#xA;&#x9;}&#xA;}"/>
+    <component id="n2_rawl" name="n2" src="b4e9h" fileName="BtnSpeed+.xml" xy="42,0" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;selected&quot;: &quot;isSpeed1&quot;&#xA;&#x9;}&#xA;}"/>
+    <component id="n3_rawl" name="n3" src="b4e9j" fileName="BtnSpeedPause.xml" xy="63,0" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;selected&quot;: &quot;isSpeedPause&quot;&#xA;&#x9;}&#xA;}"/>
+  </displayList>
+</component>

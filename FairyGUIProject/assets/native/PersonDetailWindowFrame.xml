@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="800,600">
+  <displayList>
+    <component id="n2_b4e9" name="closeButton" src="b4e9q" fileName="BtnClose.xml" xy="256,273">
+      <Button title="Close"/>
+    </component>
+    <text id="n3_b4e9" name="name" xy="237,103" size="16,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;name&quot;&#xA;&#x9;}&#xA;}" fontSize="12" text="??"/>
+  </displayList>
+</component>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="ah3qizbw">
   <resources>
-    <component id="l3sl1" name="SceneMain.xml" path="/" exported="true"/>
+    <component id="l3sl1" name="MainScene.xml" path="/" exported="true"/>
     <component id="g4d43" name="Player.xml" path="/"/>
     <component id="g4d44" name="Button1.xml" path="/"/>
     <component id="b4e95" name="DateCom.xml" path="/"/>
@@ -9,10 +9,11 @@
     <component id="b4e9i" name="BtnSpeed++.xml" path="/"/>
     <component id="b4e9j" name="BtnSpeedPause.xml" path="/"/>
     <component id="b4e9k" name="BtnSpeed+++.xml" path="/"/>
-    <component id="b4e9l" name="DateSpeedControl.xml" path="/"/>
     <component id="b4e9n" name="Button2.xml" path="/"/>
-    <component id="b4e9o" name="PersonDetailWindow.xml" path="/" exported="true"/>
+    <component id="b4e9o" name="PersonDetailWindowFrame.xml" path="/"/>
     <component id="b4e9q" name="BtnClose.xml" path="/"/>
+    <component id="rawlr" name="DataSpeedControl.xml" path="/"/>
+    <component id="rawlt" name="PersonDetailWindow.xml" path="/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="20,40" extention="Button">
+<component size="20,40" extention="Button" remark="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;selected&quot;: &quot;isSpeed2&quot;&#xA;&#x9;}&#xA;}">
   <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
   <displayList>
     <graph id="n0_b4e9" name="n0" xy="0,0" size="20,40" touchable="false" type="rect" lineSize="0" fillColor="#fff0f0f0">
