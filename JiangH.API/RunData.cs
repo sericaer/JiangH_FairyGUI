@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 
 namespace JiangH.API
@@ -27,6 +28,8 @@ namespace JiangH.API
 
         public IDate date { get; set; }
 
+        public IRelationManager relationManager { get; set; }
+
         public void OnDaysInc()
         {
             date.OnDaysInc();
@@ -43,7 +46,7 @@ namespace JiangH.API
         void OnDaysInc();
     }
 
-    public interface IPerson : INotifyPropertyChanged
+    public interface IPerson : IPoint, INotifyPropertyChanged
     {
         string name { get; set; }
 
@@ -56,10 +59,10 @@ namespace JiangH.API
         void OnDaysInc();
 
         void AddEstate(IEstate estate);
-        void RemoveEstate();
+        void RemoveEstate(IEstate estate);
     }
 
-    public interface IEstate : INotifyPropertyChanged
+    public interface IEstate : IPoint, INotifyPropertyChanged
     {
         string name { get; set; }
     }
@@ -68,5 +71,25 @@ namespace JiangH.API
     public interface IGameSessionBuilder
     {
         GameSession build();
+    }
+
+    public interface IPoint
+    {
+        ObservableCollection<IRelation> relations { get; }
+    }
+
+    public interface IRelation
+    {
+        IPoint p1 { get; }
+
+        IPoint p2 { get; }
+
+        Dictionary<string, object> attrib { get; }
+    }
+
+    public interface IRelationManager
+    {
+        void Add(IPoint p1, IPoint p2, Dictionary<string, object> attrib);
+        void Remove(IPoint p1, IPoint p2);
     }
 }

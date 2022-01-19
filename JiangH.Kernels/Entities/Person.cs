@@ -1,11 +1,13 @@
 ﻿using JiangH.API;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Collections.Specialized;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace JiangH.Kernels.Entities
 {
-    public class Person : IPerson
+    public class Person : Entity, IPerson
     {
 #pragma warning disable 0067 // No "Never used" warning
         public event PropertyChangedEventHandler PropertyChanged;
@@ -19,7 +21,7 @@ namespace JiangH.Kernels.Entities
 
         private ObservableCollection<IEstate> _estates;
 
-        public Person()
+        public Person(GameSession session) : base(session)
         {
             name = "Test1";
             age = 20;
@@ -31,7 +33,7 @@ namespace JiangH.Kernels.Entities
 
         public void AddEstate(IEstate estate)
         {
-            _estates.Add(estate);
+            session.relationManager.Add(this, estate, null);
         }
 
         public void OnDaysInc()
@@ -39,9 +41,33 @@ namespace JiangH.Kernels.Entities
             
         }
 
-        public void RemoveEstate()
+        public void RemoveEstate(IEstate estate)
         {
-            _estates.Remove(_estates.First());
+            session.relationManager.Remove(this, estate);
+        }
+
+        public override void OnRelationAdd(IRelation relation)
+        {
+            if (relation.p1 is IEstate estate1)
+            {
+                _estates.Add(estate1);
+            }
+            if (relation.p2 is IEstate estate2)
+            {
+                _estates.Add(estate2);
+            }
+        }
+
+        public override void OnRelationRemove(IRelation relation)
+        {
+            if (relation.p1 is IEstate estate1)
+            {
+                _estates.Remove(estate1);
+            }
+            if (relation.p2 is IEstate estate2)
+            {
+                _estates.Remove(estate2);
+            }
         }
     }
 

@@ -3,6 +3,8 @@ using FairyGUI.DataBind;
 using JiangH.API;
 using JiangH.Kernels.Entities;
 using System.Collections;
+using System.Linq;
+
 using UnityEngine;
 
 public class MainScene : MonoBehaviour
@@ -35,7 +37,7 @@ public class MainScene : MonoBehaviour
 
         if (count % 1500 == 0)
         {
-            Facade.gmSession.player.RemoveEstate();
+            Facade.gmSession.player.RemoveEstate(Facade.gmSession.player.estates.First());
         }
 
         count++;

@@ -26,8 +26,9 @@ namespace JiangH.Kernels
         public GameSession build()
         {
             GameSession gameSession = new GameSession();
-            gameSession.player = new Person();
+            gameSession.player = new Person(gameSession);
             gameSession.date = new Date();
+            gameSession.relationManager = new RelationManager();
 
             for (int i = 0; i < 3; i++)
             {
