@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1440,900">
+  <displayList>
+    <component id="n3_g4d4" name="Player" src="g4d43" fileName="Scene/Main/Player.xml" xy="0,0"/>
+    <component id="n17_rawl" name="n17" src="b4e95" fileName="Scene/Main/TopItem/Date.xml" xy="272,0" tooltips="12345678"/>
+    <component id="n18_rawl" name="n18" src="rawlr" fileName="Scene/Main/DataSpeedControl.xml" xy="423,0"/>
+    <component id="n20_p8bf" name="n20" src="p8bfw" fileName="Scene/Main/TopItem/Money.xml" xy="121,0"/>
+  </displayList>
+</component>

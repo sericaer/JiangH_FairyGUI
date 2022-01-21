@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="ah3qizbw">
   <resources>
-    <component id="l3sl1" name="MainScene.xml" path="/" exported="true"/>
-    <component id="g4d43" name="Player.xml" path="/"/>
-    <component id="g4d44" name="Button1.xml" path="/"/>
-    <component id="b4e95" name="DateCom.xml" path="/"/>
-    <component id="b4e9h" name="BtnSpeed+.xml" path="/"/>
-    <component id="b4e9i" name="BtnSpeed++.xml" path="/"/>
-    <component id="b4e9j" name="BtnSpeedPause.xml" path="/"/>
-    <component id="b4e9k" name="BtnSpeed+++.xml" path="/"/>
-    <component id="b4e9n" name="Button2.xml" path="/"/>
-    <component id="b4e9o" name="PersonDetailWindowFrame.xml" path="/"/>
-    <component id="b4e9q" name="BtnClose.xml" path="/"/>
-    <component id="rawlr" name="DataSpeedControl.xml" path="/"/>
-    <component id="rawlt" name="PersonDetailWindow.xml" path="/" exported="true"/>
-    <component id="rawlv" name="EstateItem.xml" path="/"/>
+    <component id="l3sl1" name="MainScene.xml" path="/Scene/Main/" exported="true"/>
+    <component id="g4d43" name="Player.xml" path="/Scene/Main/"/>
+    <component id="g4d44" name="Button1.xml" path="/Scene/Main/"/>
+    <component id="b4e95" name="Date.xml" path="/Scene/Main/TopItem/"/>
+    <component id="b4e9h" name="BtnSpeed+.xml" path="/Scene/Main/"/>
+    <component id="b4e9i" name="BtnSpeed++.xml" path="/Scene/Main/"/>
+    <component id="b4e9j" name="BtnSpeedPause.xml" path="/Scene/Main/"/>
+    <component id="b4e9k" name="BtnSpeed+++.xml" path="/Scene/Main/"/>
+    <component id="b4e9n" name="Button2.xml" path="/Scene/Main/"/>
+    <component id="b4e9o" name="PersonDetailWindowFrame.xml" path="/Scene/Main/"/>
+    <component id="b4e9q" name="BtnClose.xml" path="/Scene/Main/"/>
+    <component id="rawlr" name="DataSpeedControl.xml" path="/Scene/Main/"/>
+    <component id="rawlt" name="PersonDetailWindow.xml" path="/Scene/Main/" exported="true"/>
+    <component id="rawlv" name="EstateItem.xml" path="/Scene/Main/"/>
+    <component id="p8bfw" name="Money.xml" path="/Scene/Main/TopItem/"/>
+    <component id="p8bf11" name="TIPS.xml" path="/Scene/Tooltip/" exported="true"/>
   </resources>
   <publish name=""/>
 </packageDescription>

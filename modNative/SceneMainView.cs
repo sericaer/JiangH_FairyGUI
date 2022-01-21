@@ -33,16 +33,21 @@ namespace modNative
 
         public int speed { get; set; }
 
+        public int money { get; set; }
+        public string moneyDetailIncome { get; set; }
+
         //private ICommand _playerButtonCmd = new PersonDetailWindowCmd(() => Facade.gmSession.player);
 
         public MainSceneView()
         {
+
             BindOneWay(Facade.gmSession, x => x.date.day, this, t=> t.day);
             BindOneWay(Facade.gmSession, x => x.date.year, this, t => t.year);
             BindOneWay(Facade.gmSession, x => x.date.month, this, t => t.month);
+            BindOneWay(Facade.gmSession, x => x.player.money.count, this, t => t.money);
+            BindOneWay(Facade.gmSession, x => x.player.money.detailIncome, this, t => t.moneyDetailIncome);
 
             BindTwoWay(Facade.gmEnv, x => x.DayIncSpeed, this, x => x.speed);
-
             //Facade.gmEnv.BindTwoWay(env => env.DayIncSpeed, this, x => x.speed);
 
             //Bind.OneWay.from(Facade.gmSession, x => x.player.name).to(this, x => x.playerName);

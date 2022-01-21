@@ -1,9 +1,11 @@
 ﻿using JiangH.API;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Collections.Generic;
+using ReactiveMarbles.PropertyChanged;
 
 namespace JiangH.Kernels.Entities
 {
@@ -15,10 +17,11 @@ namespace JiangH.Kernels.Entities
 
         public string name { get ; set; }
         public int age { get; set; }
-        public int money { get; set; }
+
+        public IMoneyContainer money { get; private set; }
 
         public ReadOnlyObservableCollection<IEstate> estates { get; set; }
-
+        
         private ObservableCollection<IEstate> _estates;
 
         public Person(GameSession session) : base(session)
@@ -29,6 +32,9 @@ namespace JiangH.Kernels.Entities
             _estates = new ObservableCollection<IEstate>();
 
             estates = new ReadOnlyObservableCollection<IEstate>(_estates);
+
+            money = new MoneyContainer();
+            components.Add(money);
         }
 
         public void AddEstate(IEstate estate)
@@ -48,27 +54,64 @@ namespace JiangH.Kernels.Entities
 
         public override void OnRelationAdd(IRelation relation)
         {
-            if (relation.p1 is IEstate estate1)
+            var peer = relation.GetPeer(this);
+            if (peer is IEstate estate)
             {
-                _estates.Add(estate1);
-            }
-            if (relation.p2 is IEstate estate2)
-            {
-                _estates.Add(estate2);
+                _estates.Add(estate);
             }
         }
 
         public override void OnRelationRemove(IRelation relation)
         {
-            if (relation.p1 is IEstate estate1)
+            if (relation.GetPeer(this) is IEstate estate)
             {
-                _estates.Remove(estate1);
-            }
-            if (relation.p2 is IEstate estate2)
-            {
-                _estates.Remove(estate2);
+                _estates.Remove(estate);
             }
         }
     }
 
+    public class MoneyContainer : IMoneyContainer
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public int count { get; set; }
+
+        public string detailIncome { get; set; }
+        public string detailOutput { get; set; }
+
+        public ObservableCollection<IMoneyProducter> producters { get; private set; }
+
+        private Dictionary<IMoneyProducter, IDisposable> disposeDict;
+
+        public MoneyContainer()
+        {
+            producters = new ObservableCollection<IMoneyProducter>();
+            disposeDict = new Dictionary<IMoneyProducter, IDisposable>();
+
+            producters.CollectionChanged += (sender, e) =>
+            {
+                switch(e.Action)
+                {
+                    case NotifyCollectionChangedAction.Add:
+                        foreach(IMoneyProducter producter in e.NewItems)
+                        {
+                            var dispose = producter.WhenChanged(x => x.total).Subscribe(_ =>
+                            {
+                                detailIncome = string.Join("\n", producters.Select(x => x.total));
+                            });
+
+                            disposeDict.Add(producter, dispose);
+                        }
+                        break;
+                    case NotifyCollectionChangedAction.Remove:
+                        foreach (IMoneyProducter producter in e.OldItems)
+                        {
+                            disposeDict[producter].Dispose();
+                            disposeDict.Remove(producter);
+                        }
+                        break;
+                }
+            };
+        }
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using JiangH.API;
 using JiangH.Kernels.Entities;
+using JiangH.Kernels.Systems;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,6 +30,10 @@ namespace JiangH.Kernels
             gameSession.player = new Person(gameSession);
             gameSession.date = new Date();
             gameSession.relationManager = new RelationManager();
+            gameSession.systemManager = new SystemManager();
+
+            gameSession.relationManager.onRelationAdd = gameSession.systemManager.OnRelationAdd;
+            gameSession.relationManager.onRelationRemove = gameSession.systemManager.OnRelationRemove;
 
             for (int i = 0; i < 3; i++)
             {

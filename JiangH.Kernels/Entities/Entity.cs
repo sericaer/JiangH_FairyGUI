@@ -1,4 +1,5 @@
 ﻿using JiangH.API;
+using System;
 
 namespace JiangH.Kernels.Entities
 {

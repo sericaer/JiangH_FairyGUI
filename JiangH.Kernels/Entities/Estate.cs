@@ -7,6 +7,11 @@ namespace JiangH.Kernels.Entities
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public string name { get; set; }
+        
+        public Estate()
+        {
+            components.Add(new MoneyProducter());
+        }
 
         public override void OnRelationAdd(IRelation relation)
         {
@@ -19,4 +24,15 @@ namespace JiangH.Kernels.Entities
         }
     }
 
+    public class MoneyProducter : IMoneyProducter
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public int total { get; set; }
+
+        public MoneyProducter()
+        {
+            total = 10;
+        }
+    }
 }

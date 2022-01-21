@@ -14,6 +14,8 @@ internal class UIGenerator
 
     internal static void Init(IEnumerable<Mod> mods)
     {
+        UIConfig.tooltipsWin = "ui://ah3qizbwp8bf11";
+
         dict = new Dictionary<string, UIGroups>();
         dictBindContext = new Dictionary<GObject, BindContext>();
 
@@ -92,6 +94,11 @@ internal class UIGenerator
             foreach (var item in package.GetItems())
             {
                 if (!item.exported)
+                {
+                    continue;
+                }
+
+                if(!uiLogicDict.ContainsKey(item.name))
                 {
                     continue;
                 }
