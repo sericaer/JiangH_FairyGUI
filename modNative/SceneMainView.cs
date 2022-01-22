@@ -16,7 +16,7 @@ namespace modNative
     [UISceneBind("MainScene")]
     public class MainSceneView : UIView
     {
-        public string playerName => Facade.gmSession.player.name;
+        public string playerName { get; set; }
         public string date => $"{year}-{month}-{day}";
 
         public bool isSpeed1 { get => speed == 1; set { if (value) speed = 1; } }
@@ -43,6 +43,7 @@ namespace modNative
             BindOneWay(Facade.gmSession, x => x.date.day, this, t=> t.day);
             BindOneWay(Facade.gmSession, x => x.date.year, this, t => t.year);
             BindOneWay(Facade.gmSession, x => x.date.month, this, t => t.month);
+            BindOneWay(Facade.gmSession, x => x.player.name, this, t => t.playerName);
             BindOneWay(Facade.gmSession, x => x.player.money.count, this, t => t.money);
             BindOneWay(Facade.gmSession, x => x.player.money.detailIncome, this, t => t.moneyDetailIncome);
 
