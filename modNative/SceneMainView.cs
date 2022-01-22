@@ -40,7 +40,6 @@ namespace modNative
 
         public MainSceneView()
         {
-
             BindOneWay(Facade.gmSession, x => x.date.day, this, t=> t.day);
             BindOneWay(Facade.gmSession, x => x.date.year, this, t => t.year);
             BindOneWay(Facade.gmSession, x => x.date.month, this, t => t.month);
