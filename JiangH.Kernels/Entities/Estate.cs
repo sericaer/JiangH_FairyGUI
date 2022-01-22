@@ -6,11 +6,10 @@ namespace JiangH.Kernels.Entities
     public class Estate : Point, IEstate
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public string name { get; set; }
         
         public Estate()
         {
-            components.Add(new MoneyProducter());
+            components.Add(new MoneyProducter(this));
         }
 
         public override void OnRelationAdd(IRelation relation)
@@ -30,9 +29,13 @@ namespace JiangH.Kernels.Entities
 
         public int total { get; set; }
 
-        public MoneyProducter()
+        public IPoint owner { get; private set; }
+
+        public MoneyProducter(IPoint owner)
         {
             total = 10;
+
+            this.owner = owner;
         }
     }
 }

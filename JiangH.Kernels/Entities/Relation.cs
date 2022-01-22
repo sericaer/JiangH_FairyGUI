@@ -43,6 +43,8 @@ namespace JiangH.Kernels.Entities
 
     public abstract class Point : IPoint
     {
+        public string name { get; set; }
+
         public ObservableCollection<IRelation> relations { get; private set; }
         public ObservableCollection<IComponent> components { get; private set; }
 

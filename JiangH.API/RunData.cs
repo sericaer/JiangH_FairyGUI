@@ -81,8 +81,6 @@ namespace JiangH.API
 
     public interface IPerson : IPoint, INotifyPropertyChanged
     {
-        string name { get; set; }
-
         int age { get; set; }
 
         IMoneyContainer money { get; }
@@ -97,7 +95,6 @@ namespace JiangH.API
 
     public interface IEstate : IPoint, INotifyPropertyChanged
     {
-        string name { get; set; }
     }
 
 
@@ -108,11 +105,13 @@ namespace JiangH.API
 
     public interface IComponent : INotifyPropertyChanged
     {
-
+        IPoint owner { get; }
     }
 
     public interface IPoint
     {
+        string name { get; set; }
+
         ObservableCollection<IRelation> relations { get; }
         ObservableCollection<IComponent> components { get; }
 

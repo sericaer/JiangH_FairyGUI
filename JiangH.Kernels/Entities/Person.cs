@@ -15,7 +15,6 @@ namespace JiangH.Kernels.Entities
         public event PropertyChangedEventHandler PropertyChanged;
 #pragma warning restore 0067
 
-        public string name { get ; set; }
         public int age { get; set; }
 
         public IMoneyContainer money { get; private set; }
@@ -33,7 +32,7 @@ namespace JiangH.Kernels.Entities
 
             estates = new ReadOnlyObservableCollection<IEstate>(_estates);
 
-            money = new MoneyContainer();
+            money = new MoneyContainer(this);
             components.Add(money);
         }
 
@@ -81,10 +80,14 @@ namespace JiangH.Kernels.Entities
 
         public ObservableCollection<IMoneyProducter> producters { get; private set; }
 
+        public IPoint owner { get; private set; }
+
         private Dictionary<IMoneyProducter, IDisposable> disposeDict;
 
-        public MoneyContainer()
+        public MoneyContainer(IPoint owner)
         {
+            this.owner = owner;
+
             producters = new ObservableCollection<IMoneyProducter>();
             disposeDict = new Dictionary<IMoneyProducter, IDisposable>();
 
@@ -97,7 +100,7 @@ namespace JiangH.Kernels.Entities
                         {
                             var dispose = producter.WhenChanged(x => x.total).Subscribe(_ =>
                             {
-                                detailIncome = string.Join("\n", producters.Select(x => x.total));
+                                detailIncome = string.Join("\n", producters.Select(x =>$"{x.owner.name} : {x.total}"));
                             });
 
                             disposeDict.Add(producter, dispose);
