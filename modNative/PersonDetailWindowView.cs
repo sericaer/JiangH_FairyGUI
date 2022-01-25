@@ -12,9 +12,12 @@ namespace modNative
     {
         public string name => person.name;
 
+        public int engineTotal { get; private set; }
+        public int engineSpend { get; private set; }
+
         public ReadOnlyObservableCollection<IEstate> estates => person.estates;
 
-        public ReadOnlyObservableCollection<IPersonEngineSpend> engineSpends => person.engineSpends;
+        public ObservableCollection<IPersonEngineSpend> engineSpendItems => person.engine.spendItems;
 
         private IPerson person { get; set; }
 
@@ -22,40 +25,8 @@ namespace modNative
         {
             person = param as IPerson;
 
-            //engineSpends = new ObservableCollection<PersonEngineSpendSliderView>();
-
-            //((INotifyCollectionChanged)person.engineSpends).CollectionChanged += OnCollectionChanged;
+            BindOneWay(person, x => x.engine.spend, this, y => y.engineSpend);
         }
-
-        //private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        //{
-        //    switch(e.Action)
-        //    {
-        //        case NotifyCollectionChangedAction.Add:
-        //            foreach(IPersonEngineSpend elem in e.NewItems)
-        //            {
-        //                engineSpends.Add(new PersonEngineSpendSliderView(elem));
-        //            }
-        //            break;
-        //        case NotifyCollectionChangedAction.Remove:
-        //            foreach (IPersonEngineSpend elem in e.OldItems)
-        //            {
-        //                var needRemove = engineSpends.SingleOrDefault(x => x.engineSpend == elem);
-        //                if(needRemove != null)
-        //                {
-        //                    engineSpends.Remove(needRemove);
-        //                }
-        //            }
-        //            break;
-        //        default:
-        //            throw new NotImplementedException();
-        //    }
-        //}
-
-        //public override void Dispose()
-        //{
-        //    ((INotifyCollectionChanged)person.engineSpends).CollectionChanged -= OnCollectionChanged;
-        //}
 
     }
 }

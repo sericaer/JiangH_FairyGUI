@@ -1,16 +1,15 @@
 ﻿using JiangH.API;
+using System;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using ReactiveMarbles.PropertyChanged;
 
 namespace JiangH.Kernels.Entities
 {
     public class Person : Entity, IPerson
     {
-#pragma warning disable 0067 // No "Never used" warning
-        public event PropertyChangedEventHandler PropertyChanged;
-#pragma warning restore 0067
-
         public int age { get; set; }
 
         public IMoneyContainer money { get; private set; }
@@ -18,9 +17,8 @@ namespace JiangH.Kernels.Entities
         public ReadOnlyObservableCollection<IEstate> estates { get; set; }
         private ObservableCollection<IEstate> _estates;
 
+        public IPersonEngine engine { get; private set; }
 
-        public ReadOnlyObservableCollection<IPersonEngineSpend> engineSpends { get; set; }
-        private ObservableCollection<IPersonEngineSpend> _engineSpends;
 
         public Person(GameSession session) : base(session)
         {
@@ -30,11 +28,10 @@ namespace JiangH.Kernels.Entities
             _estates = new ObservableCollection<IEstate>();
             estates = new ReadOnlyObservableCollection<IEstate>(_estates);
 
-            _engineSpends = new ObservableCollection<IPersonEngineSpend>();
-            engineSpends = new ReadOnlyObservableCollection<IPersonEngineSpend>(_engineSpends);
-
             money = new MoneyContainer(this);
             components.Add(money);
+
+            engine = new PersonEngine();
         }
 
         public void AddEstate(IEstate estate)
@@ -63,7 +60,7 @@ namespace JiangH.Kernels.Entities
             var engineSpend = peer.GetComponent<IPersonEngineSpend>();
             if (engineSpend != null)
             {
-                _engineSpends.Add(engineSpend);
+                engine.spendItems.Add(engineSpend);
             }
         }
 
@@ -78,7 +75,7 @@ namespace JiangH.Kernels.Entities
             var engineSpend = peer.GetComponent<IPersonEngineSpend>();
             if (engineSpend != null)
             {
-                _engineSpends.Remove(engineSpend);
+                engine.spendItems.Remove(engineSpend);
             }
         }
     }

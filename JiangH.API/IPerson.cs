@@ -9,9 +9,11 @@ namespace JiangH.API
 
         IMoneyContainer money { get; }
 
+        IPersonEngine engine { get; }
+
         ReadOnlyObservableCollection<IEstate> estates { get; set; }
 
-        ReadOnlyObservableCollection<IPersonEngineSpend> engineSpends { get; set; }
+        //ReadOnlyObservableCollection<IPersonEngineSpend> engineSpends { get; set; }
 
         void OnDaysInc();
 

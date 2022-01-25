@@ -8,9 +8,7 @@ using ReactiveMarbles.PropertyChanged;
 namespace JiangH.Kernels.Entities
 {
     public class Estate : Point, IEstate
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
-        
+    {   
         public Estate()
         {
             var moneyProduct = new MoneyProducter(this, 10);

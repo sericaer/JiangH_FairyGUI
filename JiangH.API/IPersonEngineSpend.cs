@@ -9,5 +9,8 @@ namespace JiangH.API
         string name { get; }
         int realValue { get; set; }
         int expectValue { get; }
+
+        int percent { get; }
+
     }
 }

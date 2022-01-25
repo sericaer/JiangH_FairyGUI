@@ -20,8 +20,6 @@ namespace JiangH.Kernels.Components
 
         public string name => owner.name;
 
-        private IPoint _owner;
-
         public PersonEngineSpend(IPoint owner)
         {
             this.owner = owner;
