@@ -16,8 +16,11 @@ namespace JiangH.Kernels.Entities
         public IMoneyContainer money { get; private set; }
 
         public ReadOnlyObservableCollection<IEstate> estates { get; set; }
-        
         private ObservableCollection<IEstate> _estates;
+
+
+        public ReadOnlyObservableCollection<IPersonEngineSpend> engineSpends { get; set; }
+        private ObservableCollection<IPersonEngineSpend> _engineSpends;
 
         public Person(GameSession session) : base(session)
         {
@@ -25,8 +28,10 @@ namespace JiangH.Kernels.Entities
             age = 20;
 
             _estates = new ObservableCollection<IEstate>();
-
             estates = new ReadOnlyObservableCollection<IEstate>(_estates);
+
+            _engineSpends = new ObservableCollection<IPersonEngineSpend>();
+            engineSpends = new ReadOnlyObservableCollection<IPersonEngineSpend>(_engineSpends);
 
             money = new MoneyContainer(this);
             components.Add(money);
@@ -54,13 +59,26 @@ namespace JiangH.Kernels.Entities
             {
                 _estates.Add(estate);
             }
+
+            var engineSpend = peer.GetComponent<IPersonEngineSpend>();
+            if (engineSpend != null)
+            {
+                _engineSpends.Add(engineSpend);
+            }
         }
 
         public override void OnRelationRemove(IRelation relation)
         {
-            if (relation.GetPeer(this) is IEstate estate)
+            var peer = relation.GetPeer(this);
+            if (peer is IEstate estate)
             {
                 _estates.Remove(estate);
+            }
+
+            var engineSpend = peer.GetComponent<IPersonEngineSpend>();
+            if (engineSpend != null)
+            {
+                _engineSpends.Remove(engineSpend);
             }
         }
     }

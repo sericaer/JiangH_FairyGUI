@@ -35,5 +35,21 @@ namespace JiangH.Kernels.Systems
                 system.OnRelationRemove(relation);
             }
         }
+
+        public void OnComponentAdd(IComponent component)
+        {
+            foreach (var system in all)
+            {
+                system.OnComponentAdd(component);
+            }
+        }
+
+        public void OnComponentRemove(IComponent component)
+        {
+            foreach (var system in all)
+            {
+                system.OnComponentRemove(component);
+            }
+        }
     }
 }

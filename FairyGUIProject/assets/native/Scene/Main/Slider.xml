@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="50,10" extention="Slider">
+  <displayList>
+    <graph id="n0_roht" name="n0" xy="0,0" size="50,10" type="rect" lineColor="#ffa0a0a0" fillColor="#fff0f0f0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <graph id="n1_roht" name="bar" xy="5,3" size="40,4" type="rect" lineSize="0" fillColor="#ff3399ff">
+      <relation target="" sidePair="middle-middle"/>
+    </graph>
+    <component id="n2_roht" name="grip" src="roht19" fileName="Scene/Main/Slider3_grip.xml" xy="40,-5">
+      <relation target="n1_roht" sidePair="right-right"/>
+      <relation target="" sidePair="middle-middle"/>
+    </component>
+  </displayList>
+  <Slider/>
+</component>

@@ -17,6 +17,9 @@
     <component id="rawlv" name="EstateItem.xml" path="/Scene/Main/"/>
     <component id="p8bfw" name="Money.xml" path="/Scene/Main/TopItem/"/>
     <component id="p8bf11" name="TIPS.xml" path="/Scene/Tooltip/" exported="true"/>
+    <component id="roht19" name="Slider_grip.xml" path="/Scene/Main/"/>
+    <component id="roht1a" name="Slider.xml" path="/Scene/Main/"/>
+    <component id="roht1b" name="PersonEngineSpendSlider.xml" path="/Scene/Main/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

@@ -16,6 +16,16 @@ namespace JiangH.Kernels.Systems
 
         }
 
+        public void OnComponentAdd(IComponent component)
+        {
+
+        }
+
+        public void OnComponentRemove(IComponent component)
+        {
+            
+        }
+
         public void OnDaysInc()
         {
             foreach(var moneyContainer in moneyContainers)
@@ -26,7 +36,7 @@ namespace JiangH.Kernels.Systems
 
         public void OnRelationAdd(IRelation relation)
         {
-            var mRelation = GetMoneyProductRelation(relation);
+            var mRelation = relation.GetMoneyProductRelation();
             if (mRelation.container != null && mRelation.producter != null)
             {
                 mRelation.container.producters.Add(mRelation.producter);
@@ -36,29 +46,12 @@ namespace JiangH.Kernels.Systems
 
         public void OnRelationRemove(IRelation relation)
         {
-            var mRelation = GetMoneyProductRelation(relation);
+            var mRelation = relation.GetMoneyProductRelation();
             if (mRelation.container != null && mRelation.producter != null)
             {
                 mRelation.container.producters.Remove(mRelation.producter);
                 moneyContainers.Add(mRelation.container);
             }
-        }
-
-        public (IMoneyContainer container, IMoneyProducter producter) GetMoneyProductRelation(IRelation relation)
-        {
-            var container = relation.p1.GetComponent<IMoneyContainer>();
-            if (container != null)
-            {
-                return (container, relation.p2.GetComponent<IMoneyProducter>());
-            }
-
-            container = relation.p2.GetComponent<IMoneyContainer>();
-            if (container != null)
-            {
-                return (container, relation.p1.GetComponent<IMoneyProducter>());
-            }
-
-            return (null, null);
         }
     }
 }

@@ -11,6 +11,8 @@ namespace JiangH.API
 
         ReadOnlyObservableCollection<IEstate> estates { get; set; }
 
+        ReadOnlyObservableCollection<IPersonEngineSpend> engineSpends { get; set; }
+
         void OnDaysInc();
 
         void AddEstate(IEstate estate);

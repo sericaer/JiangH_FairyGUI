@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="800,600">
   <displayList>
-    <component id="n0_rawl" name="frame" src="b4e9o" fileName="PersonDetailWindowFrame.xml" xy="0,0"/>
+    <component id="n0_rawl" name="frame" src="b4e9o" fileName="Scene/Main/PersonDetailWindowFrame.xml" xy="0,0"/>
   </displayList>
 </component>

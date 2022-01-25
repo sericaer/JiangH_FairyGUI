@@ -10,6 +10,8 @@ namespace modNative
 
         public ReadOnlyObservableCollection<IEstate> estates => person.estates;
 
+        public ReadOnlyObservableCollection<IPersonEngineSpend> engineSpends => person.engineSpends;
+
         private IPerson person { get; set; }
 
         public override void Init(object param)

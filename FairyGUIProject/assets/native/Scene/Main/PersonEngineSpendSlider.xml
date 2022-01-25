@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="201,20">
+  <displayList>
+    <component id="n12_roht" name="n12" src="roht1a" fileName="Scene/Main/Slider.xml" xy="80,5" size="70,10">
+      <relation target="" sidePair="width-width,height-height"/>
+      <Slider value="50" max="100"/>
+    </component>
+    <richtext id="n14_roht" name="n14" xy="150,0" size="51,19" fontSize="12" align="center" vAlign="middle" autoSize="none" text="100/100">
+      <relation target="" sidePair="height-height,right-right"/>
+    </richtext>
+    <richtext id="n15_roht" name="n15" xy="0,0" size="80,19" fontSize="12" align="center" vAlign="middle" autoSize="none" text="??">
+      <relation target="" sidePair="height-height,left-left"/>
+    </richtext>
+  </displayList>
+</component>
