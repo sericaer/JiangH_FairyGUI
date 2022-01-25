@@ -1,8 +1,9 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace JiangH.API
 {
-    public interface IPoint
+    public interface IPoint : INotifyPropertyChanged
     {
         string name { get; set; }
 

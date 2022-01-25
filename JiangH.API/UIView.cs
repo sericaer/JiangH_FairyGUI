@@ -28,11 +28,6 @@ namespace JiangH.API
             comDisposable = new CompositeDisposable();
         }
 
-        public virtual void Init(object param)
-        {
-
-        }
-
         public void OnClickClose()
         {
             isRemoved = true;
@@ -55,7 +50,7 @@ namespace JiangH.API
             comDisposable.Add(dis);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             comDisposable.Dispose();
         }

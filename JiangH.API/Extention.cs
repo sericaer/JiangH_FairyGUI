@@ -27,6 +27,10 @@ namespace JiangH.API
                 throw new ArgumentNullException(nameof(fromObject));
             }
 
+            var setter = toProperty.GetSetter();
+            var func = fromProperty.Compile();
+            setter.Invoke(targetObject, func.Invoke(fromObject));
+
             return OneWayBindImplementation(targetObject, fromObject.WhenChanged(fromProperty), toProperty, scheduler);
         }
 
@@ -108,6 +112,7 @@ namespace JiangH.API
             }
 
             var setter = property.GetSetter();
+
             return hostObs.Subscribe(x => setter(targetObject, x));
         }
     }

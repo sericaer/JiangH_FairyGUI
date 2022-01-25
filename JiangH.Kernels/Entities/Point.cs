@@ -7,6 +7,8 @@ namespace JiangH.Kernels.Entities
 {
     public abstract class Point : IPoint
     {
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
         public string name { get; set; }
 
         public ObservableCollection<IRelation> relations { get; private set; }

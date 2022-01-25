@@ -1,38 +1,54 @@
 ﻿using FairyGUI;
 using FairyGUI.DataBind;
+using FairyGUI.DataBind.BindCustomDatas;
 using JiangH.API;
 using JiangH.Kernels.Mods;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using UI.Extends;
 
 internal class UIGenerator
 {
-    private static Dictionary<string, UIGroups> dict;
+    protected static Dictionary<string, Type> dictUIExt = new Dictionary<string, Type>()
+    {
+        //{ "ui://ah3qizbwroht1b", typeof(PersonEngineSpendSlider)}
+    };
+
+    private static Dictionary<string, UIGroups> dictUIGroups;
     private static Dictionary<GObject, BindContext> dictBindContext;
 
     internal static void Init(IEnumerable<Mod> mods)
     {
-        UIConfig.tooltipsWin = "ui://ah3qizbwp8bf11";
-
-        dict = new Dictionary<string, UIGroups>();
+        dictUIGroups = new Dictionary<string, UIGroups>();
         dictBindContext = new Dictionary<GObject, BindContext>();
 
         foreach (var mod in mods.Where(x => x.uiBytes != null))
         {
             var package = UIPackage.AddPackage(mod.uiBytes, mod.name, loadResource);
 
-            dict.Add(mod.name, new UIGroups(package, mod.uiLogicDict));
+            dictUIGroups.Add(mod.name, new UIGroups(package, mod.uiLogicDict));
+        }
+
+        UIConfig.tooltipsWin = "ui://ah3qizbwp8bf11";
+
+        foreach(var key in dictUIExt.Keys)
+        {
+            var extendType = dictUIExt[key];
+
+            UIObjectFactory.SetPackageItemExtension(key, extendType);
+
+            var methodInitBindCustomData = extendType.GetMethod("InitBindCustomData");
+            methodInitBindCustomData?.Invoke(null, null);
         }
     }
 
     internal static void GenWin(string name, object param)
     {
-        var def = dict["native"].GetUIDef(name);
+        var def = dictUIGroups["native"].GetUIDef(name);
 
-        var dataSource = Activator.CreateInstance(def.uiLogic) as UIView;
-        dataSource.Init(param);
+        var dataSource = Activator.CreateInstance(def.uiLogic, new object[] { param }) as UIView;
 
         var gObject = def.uiPackage.CreateObject(def.uiItemName).asCom;
         var context = gObject.BindDataSource(dataSource);
@@ -52,7 +68,7 @@ internal class UIGenerator
 
     internal static GObject GenScene(string name)
     {
-        var def = dict["native"].GetUIDef(name);
+        var def = dictUIGroups["native"].GetUIDef(name);
 
         var gObject = def.uiPackage.CreateObject(def.uiItemName).asCom;
         var dataSource = Activator.CreateInstance(def.uiLogic) as INotifyPropertyChanged;

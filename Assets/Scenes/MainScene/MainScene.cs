@@ -48,3 +48,13 @@ public class MainScene : MonoBehaviour
         UIGenerator.Destroy(gObject);
     }
 }
+
+
+public class Test :GButton
+{
+    public override void ConstructFromResource()
+    {
+        base.ConstructFromResource();
+    }
+
+}
