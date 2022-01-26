@@ -17,19 +17,19 @@ namespace JiangH.Kernels.Entities
             var personEngineSpend = new PersonEngineSpend(this);
             components.Add(personEngineSpend);
 
-            personEngineSpend.WhenChanged(x => x.percent).Subscribe(percent => {
-                var effectElem = new EffectElement(personEngineSpend, percent-100);
-                for(int i=0; i< moneyProduct.effects.Count; i++)
-                {
-                    if(moneyProduct.effects[i].key == effectElem.key)
-                    {
-                        moneyProduct.effects[i] = effectElem;
-                        return;
-                    }
-                }
+            //personEngineSpend.WhenChanged(x => x.percent).Subscribe(percent => {
+            //    var effectElem = new EffectElement(personEngineSpend, percent-100);
+            //    for(int i=0; i< moneyProduct.effects.Count; i++)
+            //    {
+            //        if(moneyProduct.effects[i].key == effectElem.key)
+            //        {
+            //            moneyProduct.effects[i] = effectElem;
+            //            return;
+            //        }
+            //    }
 
-                moneyProduct.effects.Add(effectElem);
-            });
+            //    moneyProduct.effects.Add(effectElem);
+            //});
 
         }
 

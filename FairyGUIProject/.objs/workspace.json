@@ -5,7 +5,7 @@
   "auxline1": true,
   "canvasColor": 10066329,
   "auxline2": true,
-  "doc.activeDoc": "ui://ah3qizbwb4e95",
+  "doc.activeDoc": "ui://ah3qizbwg4d44",
   "libview.twoColumn": false,
   "libview.expandedNodes": [
     "ah3qizbw",
@@ -15,7 +15,7 @@
     "ah3qizbw",
     "/Scene/Main/",
     "ah3qizbw",
-    "/Scene/Main/TopItem/",
+    "/Scene/Main/EngineSpend/",
     "ah3qizbw",
     "/Scene/Tooltip/"
   ],
@@ -25,6 +25,7 @@
     "ui://ah3qizbwp8bfw",
     "ui://ah3qizbwrawlt",
     "ui://ah3qizbwb4e9o",
+    "ui://ah3qizbwb4e9n",
     "ui://ah3qizbwrawlv",
     "ui://ah3qizbwb4e9q",
     "ui://ah3qizbwb4e9h",

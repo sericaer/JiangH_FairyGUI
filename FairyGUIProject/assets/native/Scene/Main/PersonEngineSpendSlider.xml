@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="352,20">
   <displayList>
-    <component id="n12_roht" name="n12" src="roht1a" fileName="Scene/Main/Slider.xml" xy="80,5" size="212,10" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;value&quot;: &quot;realValue&quot;&#xA;&#x9;}&#xA;}">
-      <relation target="" sidePair="width-width,height-height"/>
-      <Slider value="50" max="100"/>
-    </component>
     <richtext id="n15_roht" name="title" xy="0,0" size="80,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;name&quot;&#xA;&#x9;}&#xA;}" fontSize="12" align="center" vAlign="middle" autoSize="none" text="??">
       <relation target="" sidePair="height-height,left-left"/>
     </richtext>
-    <richtext id="n16_roht" name="n16" xy="326,0" size="25,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;expectValue&quot;&#xA;&#x9;}&#xA;}" fontSize="12" align="center" vAlign="middle" text="100">
-      <relation target="n17_roht" sidePair="height-height,left-left"/>
-    </richtext>
-    <text id="n17_roht" name="n17" xy="320,0" size="10,19" fontSize="12" text="/">
-      <relation target="" sidePair="height-height,right-right"/>
-    </text>
-    <richtext id="n18_roht" name="n18" xy="298,0" size="25,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;realValue&quot;&#xA;&#x9;}&#xA;}" fontSize="12" align="center" vAlign="middle" text="100">
-      <relation target="n17_roht" sidePair="height-height,right-right"/>
-    </richtext>
+    <richtext id="n18_roht" name="n18" xy="298,0" size="25,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;realValue&quot;&#xA;&#x9;}&#xA;}" fontSize="12" align="center" vAlign="middle" text="100"/>
   </displayList>
 </component>

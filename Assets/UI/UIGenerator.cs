@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using UI.Extends;
 
 internal class UIGenerator
 {

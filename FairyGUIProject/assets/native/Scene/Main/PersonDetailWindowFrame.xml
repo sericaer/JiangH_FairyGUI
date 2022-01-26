@@ -5,11 +5,11 @@
       <Button title="Close"/>
     </component>
     <text id="n3_b4e9" name="name" xy="60,39" size="16,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;name&quot;&#xA;&#x9;}&#xA;}" fontSize="12" text="??"/>
-    <list id="n6_rawl" name="n6" xy="131,34" size="213,300" customData="{&#xD;&#xA;&#x9;&quot;bind&quot;: {&#xD;&#xA;&#x9;&#x9;&quot;listSource&quot;: &quot;estates&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}" overflow="scroll">
-      <item url="ui://ah3qizbwrawlv" name="template"/>
+    <list id="n6_rawl" name="n6" xy="131,34" size="213,300" customData="{&#xD;&#xA;&#x9;&quot;bind&quot;: {&#xD;&#xA;&#x9;&#x9;&quot;listSource&quot;: &quot;estates&quot;&#xD;&#xA;&#x9;}&#xD;&#xA;}" overflow="scroll" defaultItem="ui://ah3qizbwrawlv" autoClearItems="true">
+      <item name="template"/>
     </list>
-    <list id="n7_roht" name="n7" xy="358,34" size="295,300" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;listSource&quot;: &quot;engineSpendItems&quot;&#xA;&#x9;}&#xA;}" overflow="scroll">
-      <item url="ui://ah3qizbwroht1b"/>
+    <list id="n7_roht" name="n7" xy="358,34" size="329,300" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;listSource&quot;: &quot;engineSpendItems&quot;&#xA;&#x9;}&#xA;}" overflow="scroll" defaultItem="ui://ah3qizbwroht1b" autoClearItems="true">
+      <item/>
     </list>
     <text id="n16_roht" name="name" xy="60,73" size="16,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;engineSpend&quot;&#xA;&#x9;}&#xA;}" fontSize="12" text="??"/>
     <text id="n17_roht" name="name" xy="85,73" size="16,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;engineTotal&quot;&#xA;&#x9;}&#xA;}" fontSize="12" text="??"/>

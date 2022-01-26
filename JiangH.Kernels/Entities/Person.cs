@@ -41,7 +41,7 @@ namespace JiangH.Kernels.Entities
 
         public void OnDaysInc()
         {
-            engine.spendItems[0].realValue++;
+            //engine.spendItems[0].realValue++;
         }
 
         public void RemoveEstate(IEstate estate)

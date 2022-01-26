@@ -38,43 +38,45 @@ namespace JiangH.Kernels.Entities
 
         private void OnSpendItemChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            switch (e.Action)
-            {
-                case NotifyCollectionChangedAction.Add:
-                    {
-                        foreach (IPersonEngineSpend elem in e.NewItems)
-                        {
-                            var disp = elem.WhenChanged(x => x.realValue).Subscribe(_ => 
-                            {
-                                var sum = spendItems.Sum(x => x.realValue);
-                                if (sum >= maxSpend)
-                                {
-                                    elem.realValue -= sum - maxSpend;
-                                }
-                                else
-                                {
-                                    UpdateSpendValue();
-                                }
-                            });
+            UpdateSpendValue();
 
-                            disposeDict.Add(elem, disp);
-                        }
-                    }
-                    break;
-                case NotifyCollectionChangedAction.Remove:
-                    {
-                        foreach (IPersonEngineSpend elem in e.OldItems)
-                        {
-                            elem.isValidValue = null;
+            //switch (e.Action)
+            //{
+            //    case NotifyCollectionChangedAction.Add:
+            //        {
+            //            foreach (IPersonEngineSpend elem in e.NewItems)
+            //            {
+            //                var disp = elem.WhenChanged(x => x.realValue).Subscribe(_ => 
+            //                {
+            //                    var sum = spendItems.Sum(x => x.realValue);
+            //                    if (sum >= maxSpend)
+            //                    {
+            //                        elem.realValue -= sum - maxSpend;
+            //                    }
+            //                    else
+            //                    {
+            //                        UpdateSpendValue();
+            //                    }
+            //                });
 
-                            disposeDict[elem].Dispose();
-                            disposeDict.Remove(elem);
-                        }
-                    }
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
+            //                disposeDict.Add(elem, disp);
+            //            }
+            //        }
+            //        break;
+            //    case NotifyCollectionChangedAction.Remove:
+            //        {
+            //            foreach (IPersonEngineSpend elem in e.OldItems)
+            //            {
+            //                elem.isValidValue = null;
+
+            //                disposeDict[elem].Dispose();
+            //                disposeDict.Remove(elem);
+            //            }
+            //        }
+            //        break;
+            //    default:
+            //        throw new NotImplementedException();
+            //}
         }
 
         private void UpdateSpendValue()
