@@ -19,6 +19,8 @@ namespace JiangH.Kernels.Entities
 
         public int reserve => total - spend;
 
+        public int maxSpend { get; private set; }
+
         public ObservableCollection<IPersonEngineSpend> spendItems { get; private set; }
 
         private Dictionary<IPersonEngineSpend, IDisposable> disposeDict;
@@ -26,6 +28,7 @@ namespace JiangH.Kernels.Entities
         public PersonEngine()
         {
             total = 100;
+            maxSpend = 200;
 
             spendItems = new ObservableCollection<IPersonEngineSpend>();
             disposeDict = new Dictionary<IPersonEngineSpend, IDisposable>();
@@ -41,7 +44,19 @@ namespace JiangH.Kernels.Entities
                     {
                         foreach (IPersonEngineSpend elem in e.NewItems)
                         {
-                            var disp = elem.WhenChanged(x => x.realValue).Subscribe(_ => UpdateSpendValue());
+                            var disp = elem.WhenChanged(x => x.realValue).Subscribe(_ => 
+                            {
+                                var sum = spendItems.Sum(x => x.realValue);
+                                if (sum >= maxSpend)
+                                {
+                                    elem.realValue -= sum - maxSpend;
+                                }
+                                else
+                                {
+                                    UpdateSpendValue();
+                                }
+                            });
+
                             disposeDict.Add(elem, disp);
                         }
                     }
@@ -50,6 +65,8 @@ namespace JiangH.Kernels.Entities
                     {
                         foreach (IPersonEngineSpend elem in e.OldItems)
                         {
+                            elem.isValidValue = null;
+
                             disposeDict[elem].Dispose();
                             disposeDict.Remove(elem);
                         }

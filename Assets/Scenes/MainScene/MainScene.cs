@@ -32,12 +32,12 @@ public class MainScene : MonoBehaviour
     {
         if(count % 1000 == 0)
         {
-            Facade.gmSession.player.AddEstate(new Estate() { name = $"{count}_ESTATE" });
+            //Facade.gmSession.player.AddEstate(new Estate() { name = $"{count}_ESTATE" });
         }
 
         if (count % 1500 == 0)
         {
-            Facade.gmSession.player.RemoveEstate(Facade.gmSession.player.estates.First());
+            //Facade.gmSession.player.RemoveEstate(Facade.gmSession.player.estates.First());
         }
 
         count++;

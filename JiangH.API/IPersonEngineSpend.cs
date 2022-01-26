@@ -12,5 +12,7 @@ namespace JiangH.API
 
         int percent { get; }
 
+        Func<int, bool> isValidValue { get; set; }
+
     }
 }

@@ -25,6 +25,7 @@ namespace modNative
         {
             person = param as IPerson;
 
+            BindOneWay(person, x => x.engine.total, this, y => y.engineTotal);
             BindOneWay(person, x => x.engine.spend, this, y => y.engineSpend);
         }
 

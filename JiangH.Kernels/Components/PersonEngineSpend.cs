@@ -10,7 +10,20 @@ namespace JiangH.Kernels.Components
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public int realValue { get; set; }
+        public int realValue
+        {
+            get
+            {
+                return _realValue;
+            }
+            set
+            {
+                if (isValidValue == null || isValidValue(value))
+                {
+                    _realValue = value;
+                }
+            }
+        }
 
         public int expectValue { get; private set; }
 
@@ -19,6 +32,10 @@ namespace JiangH.Kernels.Components
         public IPoint owner { get; private set; }
 
         public string name => owner.name;
+
+        public Func<int, bool> isValidValue { get; set; }
+
+        private int _realValue;
 
         public PersonEngineSpend(IPoint owner)
         {
