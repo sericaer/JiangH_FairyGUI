@@ -17,12 +17,10 @@ internal class UIGenerator
     };
 
     private static Dictionary<string, UIGroups> dictUIGroups;
-    private static Dictionary<GObject, BindContext> dictBindContext;
 
     internal static void Init(IEnumerable<Mod> mods)
     {
         dictUIGroups = new Dictionary<string, UIGroups>();
-        dictBindContext = new Dictionary<GObject, BindContext>();
 
         foreach (var mod in mods.Where(x => x.uiBytes != null))
         {
@@ -51,7 +49,7 @@ internal class UIGenerator
         var dataSource = Activator.CreateInstance(def.uiLogic, new object[] { param }) as UIView;
 
         var gObject = def.uiPackage.CreateObject(def.uiItemName).asCom;
-        var context = gObject.BindDataSource(dataSource);
+        gObject.BindDataSource(dataSource);
 
         gObject.MakeFullScreen();
 
@@ -59,11 +57,6 @@ internal class UIGenerator
         win.contentPane = gObject;
         win.modal = true;
         win.Show();
-
-        win.onRemovedFromStage.Add(() =>
-        {
-            context.Dispose();
-        });
     }
 
     internal static GObject GenScene(string name)
@@ -72,19 +65,11 @@ internal class UIGenerator
 
         var gObject = def.uiPackage.CreateObject(def.uiItemName).asCom;
         var dataSource = Activator.CreateInstance(def.uiLogic) as INotifyPropertyChanged;
-        var context = gObject.BindDataSource(dataSource);
-
-        dictBindContext.Add(gObject, context);
+        gObject.BindDataSource(dataSource);
 
         GRoot.inst.AddChild(gObject);
 
         return gObject;
-    }
-
-    internal static void Destroy(GObject gObject)
-    {
-        dictBindContext[gObject].Dispose();
-        dictBindContext.Remove(gObject);
     }
 
     private static object loadResource(string name, string extension, Type type, out DestroyMethod destroyMethod)

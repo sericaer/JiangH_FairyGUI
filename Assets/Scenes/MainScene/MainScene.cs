@@ -42,11 +42,6 @@ public class MainScene : MonoBehaviour
 
         count++;
     }
-
-    void OnDestroy()
-    {
-        UIGenerator.Destroy(gObject);
-    }
 }
 
 
