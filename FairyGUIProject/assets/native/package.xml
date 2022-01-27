@@ -20,6 +20,7 @@
     <component id="roht19" name="Slider_grip.xml" path="/Scene/Main/"/>
     <component id="roht1a" name="Slider.xml" path="/Scene/Main/"/>
     <component id="roht1b" name="PersonEngineSpendSlider.xml" path="/Scene/Main/" exported="true"/>
+    <component id="cocl1f" name="Engine.xml" path="/Scene/Main/TopItem/"/>
   </resources>
   <publish name=""/>
 </packageDescription>

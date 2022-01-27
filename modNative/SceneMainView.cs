@@ -36,6 +36,11 @@ namespace modNative
         public int money { get; set; }
         public string moneyDetailIncome { get; set; }
 
+        public int egineTotal { get; set; }
+        public int engineUsed { get; set; }
+
+        public string engineInfo => $"{engineUsed}/{egineTotal}";
+
         //private ICommand _playerButtonCmd = new PersonDetailWindowCmd(() => Facade.gmSession.player);
 
         public MainSceneView()
@@ -46,6 +51,8 @@ namespace modNative
             BindOneWay(Facade.gmSession, x => x.player.name, this, t => t.playerName);
             BindOneWay(Facade.gmSession, x => x.player.money.count, this, t => t.money);
             BindOneWay(Facade.gmSession, x => x.player.money.detailIncome, this, t => t.moneyDetailIncome);
+            BindOneWay(Facade.gmSession, x => x.player.engine.spend, this, t => t.engineUsed);
+            BindOneWay(Facade.gmSession, x => x.player.engine.total, this, t => t.egineTotal);
 
             BindTwoWay(Facade.gmEnv, x => x.DayIncSpeed, this, x => x.speed);
             //Facade.gmEnv.BindTwoWay(env => env.DayIncSpeed, this, x => x.speed);

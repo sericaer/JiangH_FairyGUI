@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1440,900">
+  <controller name="c1" pages="0,,1," selected="1"/>
   <displayList>
     <component id="n3_g4d4" name="Player" src="g4d43" fileName="Scene/Main/Player.xml" xy="0,0"/>
-    <component id="n17_rawl" name="n17" src="b4e95" fileName="Scene/Main/TopItem/Date.xml" xy="272,0" tooltips="12345678"/>
-    <component id="n18_rawl" name="n18" src="rawlr" fileName="Scene/Main/DataSpeedControl.xml" xy="423,0"/>
-    <component id="n20_p8bf" name="n20" src="p8bfw" fileName="Scene/Main/TopItem/Money.xml" xy="121,0"/>
-    <richtext id="n27_p8bf" name="n27" xy="402,257" size="198,127" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;test&quot;&#xA;&#x9;}&#xA;}" fontSize="12" autoSize="none" text="??"/>
+    <component id="n17_rawl" name="n17" src="b4e95" fileName="Scene/Main/TopItem/Date.xml" xy="423,0" tooltips="12345678"/>
+    <component id="n18_rawl" name="n18" src="rawlr" fileName="Scene/Main/DataSpeedControl.xml" xy="574,0"/>
+    <component id="n20_p8bf" name="n20" src="p8bfw" fileName="Scene/Main/TopItem/Money.xml" xy="272,0"/>
+    <component id="n33_cocl" name="n33" src="cocl1f" fileName="Scene/Main/TopItem/Engine.xml" xy="121,0"/>
   </displayList>
 </component>

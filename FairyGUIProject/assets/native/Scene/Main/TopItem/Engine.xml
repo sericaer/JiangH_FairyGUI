@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="150,40" remark="adasd">
+  <displayList>
+    <graph id="n4_b4e9" name="n4" xy="0,0" size="150,40" type="rect" lineSize="0">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </graph>
+    <richtext id="n5_p8bf" name="n5" xy="67,10" size="16,19" customData="{&#xA;&#x9;&quot;bind&quot;: {&#xA;&#x9;&#x9;&quot;text&quot;: &quot;engineInfo&quot;,&#xA;&#x9;&#x9;&quot;tips&quot;: &quot;moneyDetailIncome&quot;&#xA;&#x9;}&#xA;}" fontSize="12" align="center" vAlign="middle" text="??">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </richtext>
+  </displayList>
+  <customProperty target="标签" propertyId="0"/>
+</component>
